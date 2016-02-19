@@ -47,18 +47,18 @@ treeJSON = d3.json("nodes.json", function(error, treeData) {
     // Call visit function to establish maxLabelLength
     visit(treeData, function(d) {
         totalNodes++;
-        maxLabelLength = Math.max(d.name.length, maxLabelLength);
+        maxLabelLength = Math.max(d.node_name.length, maxLabelLength);
 
     }, function(d) {
         return d.children && d.children.length > 0 ? d.children : null;
     });
 
 
-    // sort the tree according to the node names
+    // sort the tree according to the node node_names
 
     function sortTree() {
         tree.sort(function(a, b) {
-            return b.name.toLowerCase() < a.name.toLowerCase() ? 1 : -1;
+            return b.node_name.toLowerCase() < a.node_name.toLowerCase() ? 1 : -1;
         });
     }
     // Sort the tree initially incase the JSON isn't in a sorted order.
@@ -305,7 +305,6 @@ treeJSON = d3.json("nodes.json", function(error, treeData) {
         if (!scale) {
             scale = 1;
         }
-        console.log(scale);
         x = -source.y0;
         y = -source.x0;
         x = x * scale + viewerHeight / 20;
@@ -403,7 +402,7 @@ treeJSON = d3.json("nodes.json", function(error, treeData) {
                 return d.children || d._children ? "end" : "start";
             })
             .text(function(d) {
-                return d.name;
+                return d.node_name;
             })
             .style("fill-opacity", 0);
 
@@ -430,7 +429,7 @@ treeJSON = d3.json("nodes.json", function(error, treeData) {
                 return d.children || d._children ? "end" : "start";
             })
             .text(function(d) {
-                return d.name;
+                return d.node_name;
             });
 
         // Change the circle fill depending on whether it has children and is collapsed

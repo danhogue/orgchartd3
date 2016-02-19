@@ -1,5 +1,5 @@
 {
-    "name": "Sally",
+    "node_name": "Sally",
     "children":  [
         {
             "name": "John",

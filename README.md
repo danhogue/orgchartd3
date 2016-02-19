@@ -34,14 +34,14 @@ Input:
 Output:
 
     {
-        "name": "Sally",
+        "node_name": "Sally",
         "children":  [
             {
-                "name": "John",
+                "node_name": "John",
                 "children": []
             },
             {
-                "name": "Anna",
+                "node_name": "Anna",
                 "children": []
             }
         ]
