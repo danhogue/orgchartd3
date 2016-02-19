@@ -27,21 +27,21 @@ Example
 ========
 Input:
 
-    "Doe, John", "Anderson, Sally"
-    "Sawyer, Tom", "Anderson, Sally"
-    "Anderson, Sally",""
+    "John", "Sally"
+    "Anna", "Sally"
+    "Sally",""
 
 Output:
 
     {
-        "name": "Anderson, Sally",
+        "name": "Sally",
         "children":  [
             {
-                "name": "Doe, John",
+                "name": "John",
                 "children": []
             },
             {
-                "name": "Sawyer, Tom",
+                "name": "Anna",
                 "children": []
             }
         ]
