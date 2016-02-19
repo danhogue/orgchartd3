@@ -99,7 +99,7 @@ treeJSON = d3.json("nodes.json", function(error, treeData) {
 
 
     // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
-    var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
+    var zoomListener = d3.behavior.zoom().scaleExtent([0.5, 2]).on("zoom", zoom);
 
     function initiateDrag(d, domNode) {
         draggingNode = d;
@@ -148,7 +148,7 @@ treeJSON = d3.json("nodes.json", function(error, treeData) {
         .attr("width", viewerWidth)
         .attr("height", viewerHeight)
         .attr("class", "overlay")
-        .attr("transform", "rotate(90)") //transform="rotate(180)"
+        //.attr("transform", "rotate(90)")
         .call(zoomListener);
 
 
@@ -303,13 +303,13 @@ treeJSON = d3.json("nodes.json", function(error, treeData) {
 
     function centerNode(source, scale) {
         if (!scale) {
-            scale = .45;
+            scale = 1;
         }
         console.log(scale);
         x = -source.y0;
         y = -source.x0;
-        x = x * scale + viewerHeight / 10;
-        y = y * scale - viewerWidth *  2/3;
+        x = x * scale + viewerHeight / 4;
+        y = y * scale + viewerWidth / 4;
         d3.select('g').transition()
             .duration(duration)
             .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
